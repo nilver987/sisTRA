@@ -1,0 +1,11 @@
+server:
+  port: 8761  # Puerto típico para el Registry Server
+
+spring:
+  application:
+    name: registry-server
+
+eureka:
+  client:
+    register-with-eureka: false  # El servidor de registro no se registra en sí mismo.
+    fetch-registry: false        # No necesita buscar servicios en el registro.

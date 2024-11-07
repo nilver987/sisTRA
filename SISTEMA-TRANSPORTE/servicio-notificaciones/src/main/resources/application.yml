@@ -1,0 +1,31 @@
+server:
+  port: 8073  # Puerto para el microservicio de notificaciones
+
+spring:
+  application:
+    name: servicio-notificaciones
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/notificaciones_db  # URL de la base de datos
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL8Dialect
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Configuración para auto-generar la base de datos
+    show-sql: true  # Muestra las consultas SQL en consola
+
+  mail:
+    host: smtp.gmail.com  # Configuración para correo electrónico
+    port: 587
+    username: tuemail@gmail.com  # Tu correo
+    password: tu_contraseña  # La contraseña de tu correo
+    protocol: smtp
+    tls: true
+
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka

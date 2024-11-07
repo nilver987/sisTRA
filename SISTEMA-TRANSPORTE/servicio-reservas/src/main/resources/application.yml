@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/reservas_db  # URL de la base de datos
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL8Dialect
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Crea/actualiza la estructura de tablas automáticamente
+    show-sql: true  # Muestra las consultas SQL en la consola
+  spring:
+    application:
+      name: servicio-reservas
+    eureka:
+      client:
+        service-url:
+          defaultZone: http://localhost:8761/eureka  # URL del servicio Eureka
+
+logging:
+  level:
+    org.hibernate.SQL: debug

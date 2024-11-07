@@ -1,0 +1,44 @@
+server:
+  port: 8085
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka
+  instance:
+    hostname: localhost
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: ms-catalog-service
+          uri: lb://ms-catalog-service
+          predicates:
+            - Path=/category/**
+
+
+
+
+        - id: ms-travel-service
+          uri: lb://ms-travel-service
+          predicates:
+            - Path=/travel/**, /conductor/**
+
+
+
+
+        - id: ms-vehicle-service
+          uri: lb://ms-vehicle-service
+          predicates:
+            - Path=/vehicle/**, /maintenance/**

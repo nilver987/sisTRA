@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pagos_db
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL8Dialect
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Esto actualizará la base de datos automáticamente si es necesario
+    show-sql: true  # Muestra las consultas SQL en consola
+  spring:
+    application:
+      name: servicio-pagos
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka  # Configuración de Eureka
+
+  logging:
+    level:
+      org.hibernate.SQL: debug
